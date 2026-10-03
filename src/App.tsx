@@ -195,25 +195,45 @@ function SwipeCard({
   onReveal: () => void
   onNext: () => void
 }) {
+  // Gesture state lives in refs, not component state: pointerup and pointerleave can
+  // both fire for a single touch (pointerleave arrives after React has already
+  // re-rendered with revealed=true, which used to skip straight past the answer).
+  // The `startX.current === null` check makes finish() single-fire per gesture.
   const startX = useRef<number | null>(null)
+  const deltaX = useRef(0)
+  const lastTap = useRef(0)
   const [dx, setDx] = useState(0)
   const [dragging, setDragging] = useState(false)
 
   const onDown = (e: React.PointerEvent) => {
+    if (startX.current !== null) return // ignore extra fingers mid-gesture
     startX.current = e.clientX
-    setDragging(true)
-  }
-  const onMove = (e: React.PointerEvent) => {
-    if (startX.current == null) return
-    setDx(e.clientX - startX.current)
-  }
-  const onUp = () => {
-    setDragging(false)
-    const far = Math.abs(dx) > 70
-    startX.current = null
+    deltaX.current = 0
     setDx(0)
-    if (far) revealed ? onNext() : onReveal()
-    else revealed ? onNext() : onReveal()
+    setDragging(true)
+    // capture keeps move/up delivered here even if the finger slides off the card
+    e.currentTarget.setPointerCapture?.(e.pointerId)
+  }
+
+  const onMove = (e: React.PointerEvent) => {
+    if (startX.current === null) return
+    deltaX.current = e.clientX - startX.current
+    setDx(deltaX.current)
+  }
+
+  // tap and swipe behave the same: reveal when hidden, advance when shown
+  const finish = () => {
+    if (startX.current === null) return // already handled this gesture
+    startX.current = null
+    setDragging(false)
+    setDx(0)
+    // a fast double-tap on touch produces two whole gestures in quick succession;
+    // without this the card reveals and instantly advances again
+    const now = Date.now()
+    if (now - lastTap.current < 400) return
+    lastTap.current = now
+    if (revealed) onNext()
+    else onReveal()
   }
 
   const shift = dragging ? Math.max(-150, Math.min(150, dx)) : 0
@@ -225,8 +245,8 @@ function SwipeCard({
       style={{ transform: `translateX(${shift}px) rotate(${rotate}deg)` }}
       onPointerDown={onDown}
       onPointerMove={onMove}
-      onPointerUp={onUp}
-      onPointerLeave={onUp}
+      onPointerUp={finish}
+      onPointerCancel={finish}
       role="button"
       tabIndex={0}
       aria-label={revealed ? `Answer: ${brand.brand}. Tap for next.` : 'Tap or swipe to reveal'}
