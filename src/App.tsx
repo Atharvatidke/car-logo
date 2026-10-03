@@ -9,9 +9,9 @@ const BEST_KEY = 'lg_best'
 export default function App() {
   const [phase, setPhase] = useState<Phase>('menu')
   const [turns, setTurns] = useState<Turn[]>([])
-  const [picked, setPicked] = useState<Set<string>>(
-    () => new Set(BRANDS.map((b) => b.slug)),
-  )
+  // Selection is stored as an ordered array of slugs, not a Set: the order brands are
+  // picked in is the order they appear in the game.
+  const [picked, setPicked] = useState<string[]>(() => BRANDS.map((b) => b.slug))
   const [turnIdx, setTurnIdx] = useState(0)
   const [cardIdx, setCardIdx] = useState(0)
   const [revealed, setRevealed] = useState<Record<string, boolean>>({})
@@ -21,11 +21,19 @@ export default function App() {
   const turn = turns[turnIdx]
   const card = turn?.[cardIdx]
   const totalCards = useMemo(() => turns.reduce((n, t) => n + t.length, 0), [turns])
+  // resolve selected slugs -> brands ONCE, preserving the order they were picked in
+  const chosenBrands = useMemo(
+    () =>
+      picked
+        .map((slug) => BRANDS.find((b) => b.slug === slug))
+        .filter((b): b is Brand => Boolean(b)),
+    [picked],
+  )
   const isRevealed = card ? Boolean(revealed[card.slug]) : false
 
+  // `selection` is already in pick order - keep it exactly as given
   const start = useCallback((selection: Brand[]) => {
-    const pickedBrands = BRANDS.filter((b) => selection.some((s) => s.slug === b.slug))
-    setTurns(planFromSelection(pickedBrands, TURN_SIZE))
+    setTurns(planFromSelection(selection, TURN_SIZE))
     setTurnIdx(0)
     setCardIdx(0)
     setRevealed({})
@@ -103,22 +111,19 @@ export default function App() {
   }
 
   if (phase === 'setup') {
+    const toggle = (slug: string) =>
+      setPicked((p) => (p.includes(slug) ? p.filter((s) => s !== slug) : [...p, slug]))
+
     return (
       <Setup
         picked={picked}
-        onToggle={(slug) =>
-          setPicked((p) => {
-            const n = new Set(p)
-            n.has(slug) ? n.delete(slug) : n.add(slug)
-            return n
-          })
-        }
-        onAll={() => setPicked(new Set(BRANDS.map((b) => b.slug)))}
-        onNone={() => setPicked(new Set())}
-        onEasy={() => setPicked(new Set(BRANDS.filter((b) => b.difficulty === 1).map((b) => b.slug)))}
+        chosen={chosenBrands}
+        onToggle={toggle}
+        onAll={() => setPicked(BRANDS.map((b) => b.slug))}
+        onNone={() => setPicked([])}
+        onEasy={() => setPicked(BRANDS.filter((b) => b.difficulty === 1).map((b) => b.slug))}
         onStart={() => {
-          const chosen = BRANDS.filter((b) => picked.has(b.slug))
-          if (chosen.length) start(chosen)
+          if (chosenBrands.length) start(chosenBrands)
         }}
         onBack={() => setPhase('menu')}
       />
@@ -132,7 +137,7 @@ export default function App() {
         total={totalCards}
         best={best}
         turns={turns.length}
-        onPlayAgain={() => start(BRANDS.filter((b) => picked.has(b.slug)))}
+        onPlayAgain={() => start(chosenBrands)}
         onMenu={() => setPhase('menu')}
       />
     )
@@ -143,13 +148,13 @@ export default function App() {
   return (
     <div className="app">
       <header className="hud">
-        <button className="ghost" onClick={() => setPhase('menu')} aria-label="Back to menu">
-          ‹
-        </button>
+        <div className="hud-left">
+          <button className="ghost" onClick={() => setPhase('menu')} aria-label="Back to menu">
+            ‹
+          </button>
+          <span className="turn">Turn {turnIdx + 1}/{turns.length}</span>
+        </div>
         <div className="hud-mid">
-          <span className="turn">
-            Turn {turnIdx + 1}/{turns.length}
-          </span>
           <div className="pips" role="group" aria-label="Progress this turn">
             {turn.map((b, i) => (
               <button
@@ -322,6 +327,7 @@ function Menu({
 
 function Setup({
   picked,
+  chosen,
   onToggle,
   onAll,
   onNone,
@@ -329,7 +335,8 @@ function Setup({
   onStart,
   onBack,
 }: {
-  picked: Set<string>
+  picked: string[]
+  chosen: Brand[]
   onToggle: (slug: string) => void
   onAll: () => void
   onNone: () => void
@@ -337,8 +344,7 @@ function Setup({
   onStart: () => void
   onBack: () => void
 }) {
-  const remaining = BRANDS.filter((b) => !picked.has(b.slug))
-  const chosen = BRANDS.filter((b) => picked.has(b.slug))
+  const remaining = BRANDS.filter((b) => !picked.includes(b.slug))
   const nextUp = suggestTurn(remaining, TURN_SIZE)
   const turns = Math.ceil(chosen.length / TURN_SIZE)
 
@@ -350,11 +356,13 @@ function Setup({
   return (
     <div className="app setup">
       <header className="hud">
-        <button className="ghost" onClick={onBack} aria-label="Back to menu">
-          ‹
-        </button>
+        <div className="hud-left">
+          <button className="ghost" onClick={onBack} aria-label="Back to menu">
+            ‹
+          </button>
+          <span className="turn">Choose brands</span>
+        </div>
         <div className="hud-mid">
-          <span className="turn">Choose your brands</span>
           <span className="subturn">
             {chosen.length} selected &middot; {turns} turn{turns === 1 ? '' : 's'}
           </span>
@@ -385,7 +393,7 @@ function Setup({
           </button>
 
           <div className="nextup">
-            <span className="lbl">Up next</span>
+            <span className="lbl">Next turn</span>
             {nextUp.length ? (
               nextUp.map((b) => (
                 <span className="who" key={b.slug}>
@@ -399,6 +407,21 @@ function Setup({
           </div>
         </div>
 
+        {chosen.length > 0 && (
+          <div className="queue">
+            <span className="lbl">Play order</span>
+            <ol>
+              {chosen.map((b, i) => (
+                <li key={b.slug}>
+                  <span className="num">{i + 1}</span>
+                  <span className={`dot t${b.difficulty}`} aria-hidden />
+                  <span className="nm">{b.brand}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         <div className="picker">
           {byTier.map(({ tier, items }) => (
             <section key={tier} className="tier">
@@ -409,16 +432,18 @@ function Setup({
               </h3>
               <div className="grid">
                 {items.map((b) => {
-                  const on = picked.has(b.slug)
+                                    const on = picked.includes(b.slug)
                   return (
                     <button
                       key={b.slug}
                       className={'brand' + (on ? ' on' : '')}
                       onClick={() => onToggle(b.slug)}
                       aria-pressed={on}
+                      title={on ? `${b.brand} — play order ${picked.indexOf(b.slug) + 1}` : b.brand}
                     >
                       <img src={b.questionFrame} alt="" loading="lazy" draggable={false} />
                       <span>{b.brand}</span>
+                      {on && <i className="order">{picked.indexOf(b.slug) + 1}</i>}
                       <i className="tick" aria-hidden>
                         ✓
                       </i>

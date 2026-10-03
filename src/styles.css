@@ -173,35 +173,38 @@ button {
 
 /* ----------------------------------------------------------------- hud */
 
+/* Turn label is pinned to the far LEFT, score to the far RIGHT, pips centred. */
 .hud {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 14px;
-  padding: 16px 20px;
-  padding-top: max(16px, env(safe-area-inset-top));
+  gap: 16px;
+  padding: 14px 20px;
+  padding-top: max(14px, env(safe-area-inset-top));
   flex: 0 0 auto;
 }
 
 .hud-mid {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   min-width: 0;
 }
 
 .turn {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
+  white-space: nowrap;
 }
 
 .subturn {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
+  white-space: nowrap;
 }
 
 .ghost {
@@ -245,15 +248,22 @@ button {
   cursor: not-allowed;
 }
 
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
 .pips {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .pip {
   min-height: 0;
-  width: 34px;
-  height: 6px;
+  width: 44px;
+  height: 7px;
   border-radius: 99px;
   background: rgba(255, 255, 255, 0.16);
   padding: 0;
@@ -274,16 +284,16 @@ button {
 }
 
 .score {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--muted);
-  min-width: 74px;
   text-align: right;
-  flex: 0 0 auto;
+  justify-self: end;
+  white-space: nowrap;
 }
 
 .score strong {
   color: var(--ink);
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 800;
 }
 
@@ -320,7 +330,9 @@ button {
 /* The card shows a FULL SLIDE FRAME exported from the deck, so its box must match
    the slide aspect exactly (16:9) or the frame would be distorted. */
 .card {
-  width: min(1180px, 94vw, calc((100dvh - 230px) * 16 / 9));
+  /* bigger canvas: takes nearly the full width on a tablet, and is still capped by
+     the available height so it never pushes the page into scrolling */
+  width: min(1560px, 97vw, calc((100dvh - 200px) * 16 / 9));
   aspect-ratio: 16 / 9;
   container-type: inline-size;
   perspective: 1600px;
@@ -621,6 +633,85 @@ button {
 .brand.on .tick {
   opacity: 1;
   transform: scale(1);
+}
+
+/* play-order number, top-left of a selected tile */
+.order {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #12151f;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* the queue preview: exactly the order cards will be dealt.
+   Kept to ONE row so it never steals height from the brand grid. */
+.queue {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  min-width: 0;
+}
+
+.queue .lbl {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex: 0 0 auto;
+}
+
+.queue ol {
+  margin: 0;
+  padding: 0 2px 2px 0;
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  min-width: 0;
+}
+
+.queue li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  flex: 0 0 auto;
+}
+
+.queue .num {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.queue .nm {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* --------------------------------------------------------- responsive */
