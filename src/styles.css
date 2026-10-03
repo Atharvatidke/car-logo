@@ -1,0 +1,687 @@
+:root {
+  --bg: #0b1020;
+  --bg-2: #151d36;
+  --ink: #ffffff;
+  --muted: #8e9bbd;
+  --accent: #ffcc33;
+  --good: #35d07f;
+  --card: #ffffff;
+  --radius: 20px;
+  /* larger type and touch targets - this is played on a tablet */
+  --tap: 44px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(130% 100% at 50% 0%, var(--bg-2) 0%, var(--bg) 62%);
+  color: var(--ink);
+  font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  overscroll-behavior: none;
+  overflow: hidden;
+  /* stop iOS double-tap zoom during play */
+  touch-action: manipulation;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  min-height: var(--tap);
+}
+
+.app {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------------------- menu */
+
+.menu {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.menu-inner {
+  max-width: 720px;
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kicker {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.menu h1 {
+  margin: 0 0 14px;
+  font-size: clamp(48px, 9vh, 92px);
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.menu h1 span {
+  color: var(--accent);
+}
+
+.menu h1 .of {
+  font-size: 0.4em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.blurb {
+  margin: 0 auto 30px;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: clamp(15px, 1.9vh, 18px);
+  line-height: 1.55;
+}
+
+.menu-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.play {
+  padding: 18px 46px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1a1400;
+  font-size: clamp(18px, 2.4vh, 22px);
+  font-weight: 800;
+  box-shadow: 0 12px 34px rgba(255, 204, 51, 0.24);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(255, 204, 51, 0.32);
+}
+
+.play:active {
+  transform: translateY(0);
+}
+
+.play.secondary {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--ink);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.facts {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 34px 0 22px;
+  flex-wrap: wrap;
+}
+
+.facts div {
+  min-width: 118px;
+  padding: 14px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.facts strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.facts span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.foot {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(142, 155, 189, 0.7);
+}
+
+/* ----------------------------------------------------------------- hud */
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  padding-top: max(16px, env(safe-area-inset-top));
+  flex: 0 0 auto;
+}
+
+.hud-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.turn {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.subturn {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ghost {
+  color: var(--muted);
+  font-size: 26px;
+  padding: 4px 14px;
+  border-radius: 12px;
+  flex: 0 0 auto;
+}
+
+.ghost:hover:not(:disabled) {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.ghost:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ghost.wide {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.start {
+  flex: 0 0 auto;
+  padding: 12px 34px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1a1400;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.start:disabled {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.pips {
+  display: flex;
+  gap: 8px;
+}
+
+.pip {
+  min-height: 0;
+  width: 34px;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.pip:hover {
+  transform: scaleY(1.6);
+}
+
+.pip-on {
+  background: var(--good);
+}
+
+.pip-active {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 204, 51, 0.22);
+}
+
+.score {
+  font-size: 15px;
+  color: var(--muted);
+  min-width: 74px;
+  text-align: right;
+  flex: 0 0 auto;
+}
+
+.score strong {
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------- stage */
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 24px 28px;
+}
+
+.prompt {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.counter {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(142, 155, 189, 0.7);
+}
+
+/* ---------------------------------------------------------------- card */
+
+/* The card shows a FULL SLIDE FRAME exported from the deck, so its box must match
+   the slide aspect exactly (16:9) or the frame would be distorted. */
+.card {
+  width: min(1180px, 94vw, calc((100dvh - 230px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  container-type: inline-size;
+  perspective: 1600px;
+  touch-action: pan-y;
+  user-select: none;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+  cursor: pointer;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.1, 0.2, 1);
+}
+
+.card-open .card-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face-back {
+  transform: rotateY(0deg);
+  padding-bottom: 9%;
+}
+
+.face-front {
+  transform: rotateY(180deg);
+  padding-bottom: 7%;
+}
+
+.face img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  /* frames are already correctly proportioned - never rescale them unevenly */
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.hint {
+  position: absolute;
+  bottom: 3.2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: clamp(10px, 2cqw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #aab2c8;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.95; }
+}
+
+.tag {
+  position: absolute;
+  bottom: 2.4%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: #eef1f7;
+  color: #6b7690;
+  font-size: clamp(9px, 1.7cqw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------- setup */
+
+/* Simple, robust structure: a fixed toolbar on top, and the brand grid taking
+   ALL the remaining height. Avoids two-column grids squeezing the grid to zero. */
+.setup-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 20px 18px;
+}
+
+.toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.toolbar .lbl {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+.chip {
+  min-height: 38px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chip:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.chip.accent {
+  background: rgba(255, 204, 51, 0.18);
+  color: var(--accent);
+}
+
+.nextup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.nextup .lbl {
+  margin: 0;
+}
+
+.nextup .who {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.picker {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 6px;
+  /* keep the scrollbar clear of the last row of tiles */
+  scrollbar-gutter: stable;
+}
+
+.tier {
+  margin-bottom: 22px;
+}
+
+.tier h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.dot.t1 { background: var(--good); }
+.dot.t2 { background: var(--accent); }
+.dot.t3 { background: #ff6b6b; }
+
+.tier h3 em {
+  margin-left: auto;
+  font-style: normal;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.grid {
+  display: grid;
+  /* big tiles - this is a touch interface */
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 12px;
+}
+
+.brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.brand:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.brand:active {
+  transform: scale(0.98);
+}
+
+.brand.on {
+  background: rgba(255, 204, 51, 0.14);
+  border-color: var(--accent);
+}
+
+.brand img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+  -webkit-user-drag: none;
+}
+
+.brand span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand.on span {
+  color: var(--ink);
+}
+
+.tick {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #1a1400;
+  font-size: 13px;
+  font-weight: 900;
+  font-style: normal;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.brand.on .tick {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --------------------------------------------------------- responsive */
+
+/* portrait tablet / large phone */
+@media (max-width: 900px) {
+  .nextup {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* short landscape - tablet held sideways */
+@media (max-height: 560px) {
+  .menu h1 {
+    font-size: clamp(34px, 8vh, 56px);
+  }
+
+  .blurb {
+    margin-bottom: 18px;
+  }
+
+  .facts {
+    margin: 18px 0 12px;
+  }
+
+  .facts div {
+    padding: 9px 8px;
+    min-width: 96px;
+  }
+
+  .facts strong {
+    font-size: 20px;
+  }
+
+  .foot {
+    display: none;
+  }
+
+  .card {
+    width: min(1180px, 94vw, calc((100dvh - 150px) * 16 / 9));
+  }
+
+  .stage {
+    gap: 8px;
+    padding-bottom: 14px;
+  }
+
+  .prompt,
+  .counter {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card-inner,
+  .hint,
+  .tick,
+  .pip {
+    transition: none;
+    animation: none;
+  }
+}

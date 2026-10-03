@@ -1,0 +1,274 @@
+[
+ {
+  "brand": "ALFA ROMEO",
+  "slug": "alfa-romeo",
+  "morphed": "alfa-romeo--morphed.png",
+  "original": "alfa-romeo--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "AUDI",
+  "slug": "audi",
+  "morphed": "audi--morphed.png",
+  "original": "audi--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "BMW",
+  "slug": "bmw",
+  "morphed": "bmw--morphed.png",
+  "original": "bmw--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "FERRARI",
+  "slug": "ferrari",
+  "morphed": "ferrari--morphed.png",
+  "original": "ferrari--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "HONDA",
+  "slug": "honda",
+  "morphed": "honda--morphed.png",
+  "original": "honda--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "LAMBORGHINI",
+  "slug": "lamborghini",
+  "morphed": "lamborghini--morphed.png",
+  "original": "lamborghini--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "MAYBACH",
+  "slug": "maybach",
+  "morphed": "maybach--morphed.png",
+  "original": "maybach--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "MERCEDES",
+  "slug": "mercedes",
+  "morphed": "mercedes--morphed.png",
+  "original": "mercedes--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "PORSCHE",
+  "slug": "porsche",
+  "morphed": "porsche--morphed.png",
+  "original": "porsche--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "RENAULT",
+  "slug": "renault",
+  "morphed": "renault--morphed.png",
+  "original": "renault--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "TATA",
+  "slug": "tata",
+  "morphed": "tata--morphed.png",
+  "original": "tata--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "TESLA",
+  "slug": "tesla",
+  "morphed": "tesla--morphed.png",
+  "original": "tesla--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "VOLKSWAGEN",
+  "slug": "volkswagen",
+  "morphed": "volkswagen--morphed.png",
+  "original": "volkswagen--original.png",
+  "sameImage": false,
+  "difficulty": 1
+ },
+ {
+  "brand": "BUGATTI",
+  "slug": "bugatti",
+  "morphed": "bugatti--morphed.png",
+  "original": "bugatti--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "CITROËN",
+  "slug": "citroen",
+  "morphed": "citroen--morphed.png",
+  "original": "citroen--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "FIAT",
+  "slug": "fiat",
+  "morphed": "fiat--morphed.png",
+  "original": "fiat--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "HYUNDAI",
+  "slug": "hyundai",
+  "morphed": "hyundai--morphed.png",
+  "original": "hyundai--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "KIA",
+  "slug": "kia",
+  "morphed": "kia--morphed.png",
+  "original": "kia--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "LEXUS",
+  "slug": "lexus",
+  "morphed": "lexus--morphed.png",
+  "original": "lexus--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "MASERATI",
+  "slug": "maserati",
+  "morphed": "maserati--morphed.png",
+  "original": "maserati--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "NISSAN",
+  "slug": "nissan",
+  "morphed": "nissan--morphed.png",
+  "original": "nissan--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "ŠKODA",
+  "slug": "skoda",
+  "morphed": "skoda--morphed.png",
+  "original": "skoda--original.png",
+  "sameImage": false,
+  "difficulty": 2
+ },
+ {
+  "brand": "BENTLEY",
+  "slug": "bentley",
+  "morphed": "bentley--morphed.png",
+  "original": "bentley--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "DAEWOO",
+  "slug": "daewoo",
+  "morphed": "daewoo--morphed.png",
+  "original": "daewoo--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "DATSUN",
+  "slug": "datsun",
+  "morphed": "datsun--morphed.png",
+  "original": "datsun--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "DODGE",
+  "slug": "dodge",
+  "morphed": "dodge--morphed.png",
+  "original": "dodge--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "INFINITI",
+  "slug": "infiniti",
+  "morphed": "infiniti--morphed.png",
+  "original": "infiniti--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "LADA",
+  "slug": "lada",
+  "morphed": "lada--morphed.png",
+  "original": "lada--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "LOTUS",
+  "slug": "lotus",
+  "morphed": "lotus--morphed.png",
+  "original": "lotus--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "MAHINDRA",
+  "slug": "mahindra",
+  "morphed": "mahindra--morphed.png",
+  "original": "mahindra--original.png",
+  "sameImage": true,
+  "difficulty": 3
+ },
+ {
+  "brand": "MG",
+  "slug": "mg",
+  "morphed": "mg--morphed.png",
+  "original": "mg--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "MITSUBISHI",
+  "slug": "mitsubishi",
+  "morphed": "mitsubishi--morphed.png",
+  "original": "mitsubishi--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "RAM",
+  "slug": "ram",
+  "morphed": "ram--morphed.png",
+  "original": "ram--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ },
+ {
+  "brand": "ROLLS ROYCE",
+  "slug": "rolls-royce",
+  "morphed": "rolls-royce--morphed.png",
+  "original": "rolls-royce--original.png",
+  "sameImage": false,
+  "difficulty": 3
+ }
+]

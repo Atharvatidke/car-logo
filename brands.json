@@ -1,0 +1,716 @@
+[
+ {
+  "brand": "ALFA ROMEO",
+  "slug": "alfa-romeo",
+  "morphed": "alfa-romeo--morphed.png",
+  "original": "alfa-romeo--original.png",
+  "sameImage": false,
+  "qSlide": 1,
+  "aSlide": 2,
+  "badgeOriginal": [
+   381.4,
+   30.0,
+   837.2,
+   840.0
+  ],
+  "badgeMorphed": [
+   383.3,
+   30.0,
+   833.5,
+   840.0
+  ]
+ },
+ {
+  "brand": "AUDI",
+  "slug": "audi",
+  "morphed": "audi--morphed.png",
+  "original": "audi--original.png",
+  "sameImage": false,
+  "qSlide": 3,
+  "aSlide": 4,
+  "badgeOriginal": [
+   128.2,
+   160.6,
+   1343.5,
+   578.8
+  ],
+  "badgeMorphed": [
+   55.9,
+   188.7,
+   1488.2,
+   522.5
+  ]
+ },
+ {
+  "brand": "BENTLEY",
+  "slug": "bentley",
+  "morphed": "bentley--morphed.png",
+  "original": "bentley--original.png",
+  "sameImage": false,
+  "qSlide": 5,
+  "aSlide": 6,
+  "badgeOriginal": [
+   30.0,
+   200.9,
+   1540.0,
+   498.1
+  ],
+  "badgeMorphed": [
+   30.0,
+   201.9,
+   1540.0,
+   496.2
+  ]
+ },
+ {
+  "brand": "BMW",
+  "slug": "bmw",
+  "morphed": "bmw--morphed.png",
+  "original": "bmw--original.png",
+  "sameImage": false,
+  "qSlide": 7,
+  "aSlide": 8,
+  "badgeOriginal": [
+   380.0,
+   30.0,
+   840.0,
+   840.0
+  ],
+  "badgeMorphed": [
+   382.3,
+   30.0,
+   835.3,
+   840.0
+  ]
+ },
+ {
+  "brand": "BUGATTI",
+  "slug": "bugatti",
+  "morphed": "bugatti--morphed.png",
+  "original": "bugatti--original.png",
+  "sameImage": false,
+  "qSlide": 9,
+  "aSlide": 10,
+  "badgeOriginal": [
+   180.9,
+   136.0,
+   1238.2,
+   628.0
+  ],
+  "badgeMorphed": [
+   181.3,
+   135.8,
+   1237.5,
+   628.4
+  ]
+ },
+ {
+  "brand": "CITROËN",
+  "slug": "citroen",
+  "morphed": "citroen--morphed.png",
+  "original": "citroen--original.png",
+  "sameImage": false,
+  "qSlide": 11,
+  "aSlide": 12,
+  "badgeOriginal": [
+   453.2,
+   107.7,
+   693.6,
+   684.6
+  ],
+  "badgeMorphed": [
+   334.2,
+   32.6,
+   931.6,
+   834.7
+  ]
+ },
+ {
+  "brand": "DAEWOO",
+  "slug": "daewoo",
+  "morphed": "daewoo--morphed.png",
+  "original": "daewoo--original.png",
+  "sameImage": false,
+  "qSlide": 13,
+  "aSlide": 14,
+  "badgeOriginal": [
+   337.2,
+   145.7,
+   925.5,
+   608.5
+  ],
+  "badgeMorphed": [
+   202.7,
+   124.6,
+   1194.7,
+   650.9
+  ]
+ },
+ {
+  "brand": "DATSUN",
+  "slug": "datsun",
+  "morphed": "datsun--morphed.png",
+  "original": "datsun--original.png",
+  "sameImage": false,
+  "qSlide": 15,
+  "aSlide": 16,
+  "badgeOriginal": [
+   199.0,
+   126.5,
+   1201.9,
+   647.0
+  ],
+  "badgeMorphed": [
+   197.9,
+   127.2,
+   1204.3,
+   645.7
+  ]
+ },
+ {
+  "brand": "DODGE",
+  "slug": "dodge",
+  "morphed": "dodge--morphed.png",
+  "original": "dodge--original.png",
+  "sameImage": false,
+  "qSlide": 17,
+  "aSlide": 18,
+  "badgeOriginal": [
+   476.0,
+   73.7,
+   648.0,
+   752.5
+  ],
+  "badgeMorphed": [
+   408.5,
+   30.0,
+   783.0,
+   840.0
+  ]
+ },
+ {
+  "brand": "FERRARI",
+  "slug": "ferrari",
+  "morphed": "ferrari--morphed.png",
+  "original": "ferrari--original.png",
+  "sameImage": false,
+  "qSlide": 19,
+  "aSlide": 20,
+  "badgeOriginal": [
+   497.2,
+   30.0,
+   605.6,
+   840.0
+  ],
+  "badgeMorphed": [
+   497.2,
+   30.0,
+   605.6,
+   840.0
+  ]
+ },
+ {
+  "brand": "FIAT",
+  "slug": "fiat",
+  "morphed": "fiat--morphed.png",
+  "original": "fiat--original.png",
+  "sameImage": false,
+  "qSlide": 21,
+  "aSlide": 22,
+  "badgeOriginal": [
+   380.0,
+   30.0,
+   840.0,
+   840.0
+  ],
+  "badgeMorphed": [
+   379.5,
+   30.0,
+   840.9,
+   840.0
+  ]
+ },
+ {
+  "brand": "HONDA",
+  "slug": "honda",
+  "morphed": "honda--morphed.png",
+  "original": "honda--original.png",
+  "sameImage": false,
+  "qSlide": 23,
+  "aSlide": 24,
+  "badgeOriginal": [
+   437.2,
+   109.5,
+   725.6,
+   681.1
+  ],
+  "badgeMorphed": [
+   312.1,
+   51.5,
+   975.7,
+   797.0
+  ]
+ },
+ {
+  "brand": "HYUNDAI",
+  "slug": "hyundai",
+  "morphed": "hyundai--morphed.png",
+  "original": "hyundai--original.png",
+  "sameImage": false,
+  "qSlide": 25,
+  "aSlide": 26,
+  "badgeOriginal": [
+   262.3,
+   127.7,
+   1075.4,
+   644.6
+  ],
+  "badgeMorphed": [
+   186.6,
+   133.1,
+   1226.8,
+   633.8
+  ]
+ },
+ {
+  "brand": "INFINITI",
+  "slug": "infiniti",
+  "morphed": "infiniti--morphed.png",
+  "original": "infiniti--original.png",
+  "sameImage": false,
+  "qSlide": 27,
+  "aSlide": 28,
+  "badgeOriginal": [
+   364.4,
+   159.2,
+   871.2,
+   581.6
+  ],
+  "badgeMorphed": [
+   181.9,
+   135.5,
+   1236.1,
+   629.1
+  ]
+ },
+ {
+  "brand": "KIA",
+  "slug": "kia",
+  "morphed": "kia--morphed.png",
+  "original": "kia--original.png",
+  "sameImage": false,
+  "qSlide": 29,
+  "aSlide": 30,
+  "badgeOriginal": [
+   30.0,
+   263.5,
+   1540.0,
+   373.0
+  ],
+  "badgeMorphed": [
+   30.0,
+   263.5,
+   1540.0,
+   373.0
+  ]
+ },
+ {
+  "brand": "LADA",
+  "slug": "lada",
+  "morphed": "lada--morphed.png",
+  "original": "lada--original.png",
+  "sameImage": false,
+  "qSlide": 31,
+  "aSlide": 32,
+  "badgeOriginal": [
+   115.1,
+   166.2,
+   1369.8,
+   567.7
+  ],
+  "badgeMorphed": [
+   115.1,
+   166.2,
+   1369.8,
+   567.7
+  ]
+ },
+ {
+  "brand": "LAMBORGHINI",
+  "slug": "lamborghini",
+  "morphed": "lamborghini--morphed.png",
+  "original": "lamborghini--original.png",
+  "sameImage": false,
+  "qSlide": 33,
+  "aSlide": 34,
+  "badgeOriginal": [
+   433.7,
+   30.0,
+   732.5,
+   840.0
+  ],
+  "badgeMorphed": [
+   434.6,
+   30.0,
+   730.8,
+   840.0
+  ]
+ },
+ {
+  "brand": "LEXUS",
+  "slug": "lexus",
+  "morphed": "lexus--morphed.png",
+  "original": "lexus--original.png",
+  "sameImage": false,
+  "qSlide": 35,
+  "aSlide": 36,
+  "badgeOriginal": [
+   526.9,
+   224.7,
+   546.2,
+   450.7
+  ],
+  "badgeMorphed": [
+   278.6,
+   77.1,
+   1042.8,
+   745.7
+  ]
+ },
+ {
+  "brand": "LOTUS",
+  "slug": "lotus",
+  "morphed": "lotus--morphed.png",
+  "original": "lotus--original.png",
+  "sameImage": false,
+  "qSlide": 37,
+  "aSlide": 38,
+  "badgeOriginal": [
+   380.0,
+   30.0,
+   840.0,
+   840.0
+  ],
+  "badgeMorphed": [
+   380.9,
+   30.0,
+   838.1,
+   840.0
+  ]
+ },
+ {
+  "brand": "MAHINDRA",
+  "slug": "mahindra",
+  "morphed": "mahindra--morphed.png",
+  "original": "mahindra--original.png",
+  "sameImage": true,
+  "qSlide": 39,
+  "aSlide": 39,
+  "badgeOriginal": [
+   266.6,
+   85.5,
+   1066.8,
+   728.9
+  ],
+  "badgeMorphed": [
+   266.6,
+   85.5,
+   1066.8,
+   728.9
+  ]
+ },
+ {
+  "brand": "MASERATI",
+  "slug": "maserati",
+  "morphed": "maserati--morphed.png",
+  "original": "maserati--original.png",
+  "sameImage": false,
+  "qSlide": 40,
+  "aSlide": 41,
+  "badgeOriginal": [
+   641.2,
+   209.4,
+   317.6,
+   481.2
+  ],
+  "badgeMorphed": [
+   499.7,
+   30.0,
+   600.6,
+   840.0
+  ]
+ },
+ {
+  "brand": "MAYBACH",
+  "slug": "maybach",
+  "morphed": "maybach--morphed.png",
+  "original": "maybach--original.png",
+  "sameImage": false,
+  "qSlide": 42,
+  "aSlide": 43,
+  "badgeOriginal": [
+   495.7,
+   221.7,
+   608.6,
+   456.7
+  ],
+  "badgeMorphed": [
+   291.5,
+   67.7,
+   1017.0,
+   764.6
+  ]
+ },
+ {
+  "brand": "MERCEDES",
+  "slug": "mercedes",
+  "morphed": "mercedes--morphed.png",
+  "original": "mercedes--original.png",
+  "sameImage": false,
+  "qSlide": 44,
+  "aSlide": 45,
+  "badgeOriginal": [
+   529.7,
+   114.1,
+   540.5,
+   671.9
+  ],
+  "badgeMorphed": [
+   380.6,
+   30.0,
+   838.7,
+   840.0
+  ]
+ },
+ {
+  "brand": "MG",
+  "slug": "mg",
+  "morphed": "mg--morphed.png",
+  "original": "mg--original.png",
+  "sameImage": false,
+  "qSlide": 46,
+  "aSlide": 47,
+  "badgeOriginal": [
+   379.5,
+   30.0,
+   840.9,
+   840.0
+  ],
+  "badgeMorphed": [
+   380.9,
+   30.0,
+   838.1,
+   840.0
+  ]
+ },
+ {
+  "brand": "MITSUBISHI",
+  "slug": "mitsubishi",
+  "morphed": "mitsubishi--morphed.png",
+  "original": "mitsubishi--original.png",
+  "sameImage": false,
+  "qSlide": 48,
+  "aSlide": 49,
+  "badgeOriginal": [
+   473.6,
+   141.2,
+   652.7,
+   617.6
+  ],
+  "badgeMorphed": [
+   325.2,
+   40.6,
+   949.6,
+   818.9
+  ]
+ },
+ {
+  "brand": "NISSAN",
+  "slug": "nissan",
+  "morphed": "nissan--morphed.png",
+  "original": "nissan--original.png",
+  "sameImage": false,
+  "qSlide": 50,
+  "aSlide": 51,
+  "badgeOriginal": [
+   322.7,
+   42.7,
+   954.5,
+   814.7
+  ],
+  "badgeMorphed": [
+   322.1,
+   43.2,
+   955.8,
+   813.5
+  ]
+ },
+ {
+  "brand": "PORSCHE",
+  "slug": "porsche",
+  "morphed": "porsche--morphed.png",
+  "original": "porsche--original.png",
+  "sameImage": false,
+  "qSlide": 52,
+  "aSlide": 53,
+  "badgeOriginal": [
+   474.2,
+   30.0,
+   651.7,
+   840.0
+  ],
+  "badgeMorphed": [
+   435.9,
+   30.0,
+   728.2,
+   840.0
+  ]
+ },
+ {
+  "brand": "RAM",
+  "slug": "ram",
+  "morphed": "ram--morphed.png",
+  "original": "ram--original.png",
+  "sameImage": false,
+  "qSlide": 54,
+  "aSlide": 55,
+  "badgeOriginal": [
+   414.2,
+   80.0,
+   771.6,
+   740.0
+  ],
+  "badgeMorphed": [
+   337.4,
+   30.0,
+   925.3,
+   840.0
+  ]
+ },
+ {
+  "brand": "RENAULT",
+  "slug": "renault",
+  "morphed": "renault--morphed.png",
+  "original": "renault--original.png",
+  "sameImage": false,
+  "qSlide": 56,
+  "aSlide": 57,
+  "badgeOriginal": [
+   576.7,
+   93.0,
+   446.7,
+   714.0
+  ],
+  "badgeMorphed": [
+   463.1,
+   30.0,
+   673.8,
+   840.0
+  ]
+ },
+ {
+  "brand": "ROLLS ROYCE",
+  "slug": "rolls-royce",
+  "morphed": "rolls-royce--morphed.png",
+  "original": "rolls-royce--original.png",
+  "sameImage": false,
+  "qSlide": 58,
+  "aSlide": 59,
+  "badgeOriginal": [
+   559.7,
+   30.0,
+   480.7,
+   840.0
+  ],
+  "badgeMorphed": [
+   559.3,
+   30.0,
+   481.5,
+   840.0
+  ]
+ },
+ {
+  "brand": "ŠKODA",
+  "slug": "skoda",
+  "morphed": "skoda--morphed.png",
+  "original": "skoda--original.png",
+  "sameImage": false,
+  "qSlide": 60,
+  "aSlide": 61,
+  "badgeOriginal": [
+   380.5,
+   30.5,
+   839.1,
+   839.1
+  ],
+  "badgeMorphed": [
+   381.4,
+   30.0,
+   837.2,
+   840.0
+  ]
+ },
+ {
+  "brand": "TATA",
+  "slug": "tata",
+  "morphed": "tata--morphed.png",
+  "original": "tata--original.png",
+  "sameImage": false,
+  "qSlide": 62,
+  "aSlide": 63,
+  "badgeOriginal": [
+   441.1,
+   150.4,
+   717.7,
+   599.2
+  ],
+  "badgeMorphed": [
+   261.6,
+   88.9,
+   1076.7,
+   722.2
+  ]
+ },
+ {
+  "brand": "TESLA",
+  "slug": "tesla",
+  "morphed": "tesla--morphed.png",
+  "original": "tesla--original.png",
+  "sameImage": false,
+  "qSlide": 64,
+  "aSlide": 65,
+  "badgeOriginal": [
+   377.2,
+   30.0,
+   845.6,
+   840.0
+  ],
+  "badgeMorphed": [
+   377.2,
+   30.0,
+   845.6,
+   840.0
+  ]
+ },
+ {
+  "brand": "VOLKSWAGEN",
+  "slug": "volkswagen",
+  "morphed": "volkswagen--morphed.png",
+  "original": "volkswagen--original.png",
+  "sameImage": false,
+  "qSlide": 66,
+  "aSlide": 67,
+  "badgeOriginal": [
+   380.0,
+   30.0,
+   840.0,
+   840.0
+  ],
+  "badgeMorphed": [
+   379.5,
+   30.0,
+   840.9,
+   840.0
+  ]
+ }
+]
